@@ -14,9 +14,11 @@ use crate::{
         Field, PrimeField, SquareRootField,
     },
     groups::tests::group_test,
+    test_rng,
 };
-use rand;
+use rand::Rng;
 use std::ops::{AddAssign, MulAssign};
+use num_traits::{Zero, One};
 
 #[test]
 fn test_g1_projective_curve() {
@@ -25,8 +27,9 @@ fn test_g1_projective_curve() {
 
 #[test]
 fn test_g1_projective_group() {
-    let a: G1Projective = rand::random();
-    let b: G1Projective = rand::random();
+    let mut rng = test_rng();
+    let a: G1Projective = rng.gen();
+    let b: G1Projective = rng.gen();
     group_test(a, b);
 }
 
@@ -44,8 +47,9 @@ fn test_g2_projective_curve() {
 
 #[test]
 fn test_g2_projective_group() {
-    let a: G2Projective = rand::random();
-    let b: G2Projective = rand::random();
+    let mut rng = test_rng();
+    let a: G1Projective = rng.gen();
+    let b: G1Projective = rng.gen();
     group_test(a, b);
 }
 

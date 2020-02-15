@@ -265,6 +265,7 @@ mod test {
     use crate::{Field, UniformRand};
     use rand::SeedableRng;
     use rand_xorshift::XorShiftRng;
+    use num_traits::{Zero, One};
 
     #[test]
     fn test_fq2_mul_nonresidue() {

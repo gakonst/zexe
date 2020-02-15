@@ -8,6 +8,7 @@ use crate::{
 };
 use derivative::Derivative;
 use std::io::{Result as IoResult, Write};
+use num_traits::Zero;
 
 pub type G1Affine<P> = GroupAffine<<P as BnParameters>::G1Parameters>;
 

@@ -12,6 +12,7 @@ use std::{
     io::{Result as IoResult, Write},
     ops::{AddAssign, MulAssign, Neg, SubAssign},
 };
+use num_traits::One;
 
 pub type G2Affine<P> = GroupAffine<<P as BnParameters>::G2Parameters>;
 pub type G2Projective<P> = GroupProjective<<P as BnParameters>::G2Parameters>;

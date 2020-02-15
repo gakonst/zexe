@@ -11,6 +11,7 @@ use crate::{
     },
 };
 use derivative::Derivative;
+use num_traits::One;
 
 use std::{marker::PhantomData, ops::MulAssign};
 

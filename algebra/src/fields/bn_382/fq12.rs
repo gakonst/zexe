@@ -204,6 +204,7 @@ mod test {
     use crate::{Field, UniformRand};
     use rand::SeedableRng;
     use rand_xorshift::XorShiftRng;
+    use num_traits::One;
 
     #[test]
     fn test_fq12_inversion() {

@@ -3,8 +3,8 @@ use crate::{
     curves::{ModelParameters, SWModelParameters},
     field_new,
     fields::bn_382::{Fp, Fq},
-    Field,
 };
+use num_traits::Zero;
 
 #[derive(Copy, Clone, Default, PartialEq, Eq)]
 pub struct Bn_382G1Parameters;
