@@ -1538,13 +1538,14 @@ fn test_fq_squaring() {
     a.square_in_place();
     assert_eq!(
         a,
-        Fq::from_repr(BigInteger384([
-            0x1cfb28fe7dfbbb86,
-            0x24cbe1731577a59,
-            0xcce1d4edc120e66e,
-            0xdc05c659b4e15b27,
-            0x79361e5a802c6a23,
-            0x24bcbe5d51b9a6f,
+        Fq::new(
+            BigInteger384([
+            0x43dbc5c09ad4e96a,
+            0x3cbaf8eb85b0366b,
+            0x99b1e5d0a4e880d9,
+            0x9838c1c74a100f1f,
+            0x4eeb964f8ebd7f44,
+            0x1f6367a00e987fe7
         ]))
     );
 
