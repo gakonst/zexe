@@ -4,7 +4,7 @@ use algebra_core::{
         models::short_weierstrass_jacobian::{GroupAffine, GroupProjective},
         AffineCurve, ProjectiveCurve,
     },
-    CanonicalDeserialize, CanonicalSerialize, Field, MontgomeryModelParameters, One, PrimeField,
+    CanonicalDeserialize, CanonicalSerialize, GroupSerialize, GroupDeserialize, Field, MontgomeryModelParameters, One, PrimeField,
     SWModelParameters, SerializationError, TEModelParameters, UniformRand, Vec, Zero,
 };
 use rand::SeedableRng;
@@ -291,6 +291,14 @@ pub fn sw_curve_serialization_test<P: SWModelParameters>(buf_size: usize) {
     for _ in 0..ITERATIONS {
         let a = GroupProjective::<P>::rand(&mut rng);
         let mut a = a.into_affine();
+
+        {
+            let mut serialized = vec![0; 2 * buf_size];
+            a.serialize_uncompressed(&mut serialized).unwrap();
+            let b = GroupAffine::<P>::deserialize_uncompressed(&serialized).unwrap();
+            assert_eq!(a, b);
+        }
+
         {
             let mut serialized = vec![0; buf_size];
             a.serialize(&[], &mut serialized).unwrap();
